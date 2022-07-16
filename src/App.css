@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+:root {
+  /* DEFAULTS */
+  font-size: smaller;
+  --borderRadius: 1rem;
+
+  /* COLORS SCHEME */
+  --backgroundColor: #f5f2e5;
+  --primaryColor: #f5c85f;
+  --primaryTextColor: #1c1b1f;
+  --textColor: var(--primaryTextColor);
+
+  /* BOX SHADOWS */
+  --defaultShadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+@media (prefers-color-scheme: dark) {
+  :root{  
+  --backgroundColor: #1a1a1a;
+  --primaryColor: #f5c85f;
+  --primaryTextColor: var(--backgroundColor);
+  --textColor: white;
+  }
+  .button:hover{
+    filter: none !important;
+  }
+  input {
+    background-color: transparent;
+    color: var(--textColor);
+    box-shadow: 0 0 0 1px inset var(--textColor);
+  }
+            input[type=text]:focus, input[type=tel]:focus {
+              color: #f5c85f;
+            }
+}
+body,
+html {
+  height: 100%;
+  width: 100vw;
+  background-color: var(--backgroundColor);
+  margin: 0;
+  padding: 0;
+}
+#root,
+.App {
+  height: 100%;
+}
+.App,
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+}
+form {
+  gap: 1rem;
+}
+.button, input {
+  border-radius: var(--borderRadius);
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  font: 1.2rem Roboto;
+  margin: 0.2rem;
+}
+input:disabled {
+  filter: grayscale(1);
+  pointer-events: none;
+}
+.button {
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  padding: 1rem 3rem;
+  box-shadow: var(--defaultShadow);
+  background-color: var(--primaryColor);
+  color: var(--primaryTextColor);
+}
+.button:hover {
+  background-color: var(--primaryTextColor);
+  filter: saturate(0.5);
+  color: var(--primaryColor);
+  box-shadow: var(--defaultShadow), 0 0 0 0.1rem var(--primaryColor);
+}
+footer {
+  height: 30px;
+  font-family: Roboto;
+  font-size: small;
+  font-weight: 500;
+  color: var(--textColor);
+}
+footer a {
+      color: var(--textColor);
+        text-decoration: none;
+}
+footer a:hover {
+  color: var(--primaryColor);
+  text-decoration: underline;
+}
