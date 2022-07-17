@@ -14,13 +14,13 @@
   --defaultShadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
 }
 @media (prefers-color-scheme: dark) {
-  :root{  
-  --backgroundColor: #1a1a1a;
-  --primaryColor: #f5c85f;
-  --primaryTextColor: var(--backgroundColor);
-  --textColor: white;
+  :root {
+    --backgroundColor: #1a1a1a;
+    --primaryColor: #f5c85f;
+    --primaryTextColor: var(--backgroundColor);
+    --textColor: white;
   }
-  .button:hover{
+  .button:hover {
     filter: none !important;
   }
   input {
@@ -28,9 +28,10 @@
     color: var(--textColor);
     box-shadow: 0 0 0 1px inset var(--textColor);
   }
-            input[type=text]:focus, input[type=tel]:focus {
-              color: #f5c85f;
-            }
+  input[type="text"]:focus,
+  input[type="tel"]:focus {
+    color: #f5c85f;
+  }
 }
 body,
 html {
@@ -50,12 +51,13 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex:1;
+  flex: 1;
 }
 form {
   gap: 1rem;
 }
-.button, input {
+.button,
+input {
   border-radius: var(--borderRadius);
   gap: 0.5rem;
   padding: 0.8rem 1rem;
@@ -90,8 +92,8 @@ footer {
   color: var(--textColor);
 }
 footer a {
-      color: var(--textColor);
-        text-decoration: none;
+  color: var(--textColor);
+  text-decoration: none;
 }
 footer a:hover {
   color: var(--primaryColor);
