@@ -37,12 +37,14 @@ function App() {
                 return e.target.value.length > 0 ? e.target.value : old;
               })
             }
+            autoComplete={false}
           ></input>
           <input
             type={"tel"}
             id="phone-number-input"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            autoComplete={false}
             pattern="[0-9]+"
           ></input>
         </div>
