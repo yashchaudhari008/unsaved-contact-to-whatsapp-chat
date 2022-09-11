@@ -5,11 +5,28 @@ function App() {
   const [countryCode, setCountryCode] = useState("+91");
   const [phoneNumber, setPhoneNumber] = useState("");
 
+  const [showCountryCode, setShowCountryCode] = useState(true);
+
+  const parseNumber = (numberString) => {
+    if (numberString[0] === "+") {
+      setShowCountryCode(false);
+    } else {
+      setShowCountryCode(true);
+    }
+    return numberString.replace(/[^0-9+]/g, "");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (phoneNumber.length > 0) {
-      window.open(`https://wa.me/${countryCode.match("[0-9]+") + phoneNumber}`);
+      window.open(
+        `https://wa.me/${
+          (showCountryCode ? countryCode.match("[0-9]+") : "") +
+          phoneNumber.replace(/[+]/g, "")
+        }`
+      );
       setPhoneNumber("");
+      setShowCountryCode(true);
     }
   };
 
@@ -27,25 +44,27 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <div>
-          <input
-            type={"text"}
-            id="country-code-input"
-            value={countryCode}
-            size={countryCode.length}
-            onChange={(e) =>
-              setCountryCode((old) => {
-                return e.target.value.length > 0 ? e.target.value : old;
-              })
-            }
-            autoComplete={false}
-          ></input>
+          {showCountryCode && (
+            <input
+              type={"text"}
+              id="country-code-input"
+              value={countryCode}
+              size={countryCode.length}
+              onChange={(e) =>
+                setCountryCode((old) => {
+                  return e.target.value.length > 0 ? e.target.value : old;
+                })
+              }
+              autoComplete={false}
+            ></input>
+          )}
           <input
             type={"tel"}
             id="phone-number-input"
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={(e) => setPhoneNumber(parseNumber(e.target.value))}
             autoComplete={false}
-            pattern="[0-9]+"
+            pattern="^(\+?(\d{1,3}))?[0-9]+"
           ></input>
         </div>
         <input
