@@ -55,24 +55,24 @@ function App() {
                   return e.target.value.length > 0 ? e.target.value : old;
                 })
               }
-              autoComplete={false}
-            ></input>
+              autoComplete="off"
+            />
           )}
           <input
             type={"tel"}
             id="phone-number-input"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(parseNumber(e.target.value))}
-            autoComplete={false}
+            autoComplete={"off"}
             pattern="^(\+?(\d{1,3}))?[0-9]+"
-          ></input>
+          />
         </div>
         <input
           type={"submit"}
           className={"button"}
           disabled={!phoneNumber}
           value={"Search"}
-        ></input>
+        />
         {installEvent !== null && (
           <button
             className={"button"}
