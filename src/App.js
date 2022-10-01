@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [countryCode, setCountryCode] = useState("+91");
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const [installEvent, setInstallEvent] = useState(null);
   const [showCountryCode, setShowCountryCode] = useState(true);
 
   const parseNumber = (numberString) => {
@@ -18,19 +18,19 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (phoneNumber.length > 0) {
-      window.open(
-        `https://wa.me/${
-          (showCountryCode ? countryCode.match("[0-9]+") : "") +
-          phoneNumber.replace(/[+]/g, "")
-        }`
-      );
-      setPhoneNumber("");
-      setShowCountryCode(true);
-    }
+    if (!phoneNumber.length) return;
+    // If user not put country code, then user can't go to next step
+    if (countryCode.trim().length <= 1) return;
+    window.open(
+      `https://wa.me/${
+        (showCountryCode ? countryCode.match("[0-9]+") : "") +
+        phoneNumber.replace(/[+]/g, "")
+      }`
+    );
+    setPhoneNumber("");
+    setShowCountryCode(true);
   };
 
-  const [installEvent, setInstallEvent] = useState(null);
   useEffect(() => {
     const handler = (event) => {
       event.preventDefault();
@@ -51,9 +51,9 @@ function App() {
               value={countryCode}
               size={countryCode.length}
               onChange={(e) =>
-                setCountryCode((old) => {
-                  return e.target.value.length > 0 ? e.target.value : old;
-                })
+                setCountryCode((old) =>
+                  e.target.value.length ? e.target.value : old
+                )
               }
               autoComplete="off"
             />
