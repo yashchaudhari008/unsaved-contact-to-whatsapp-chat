@@ -1,12 +1,10 @@
-
-
 # <img align="center" width="50" height="50" src="/public/icons/apple-icon-180.png" /> Unsaved Contact To Whatsapp Chat
-[![React WebApp CI/CD](https://github.com/yashchaudhari008/Codechef_Cards/actions/workflows/node.js.yml/badge.svg)](https://github.com/yashchaudhari008/unsaved-contact-to-whatsapp-chat/actions/workflows/node.js.yml)
+
+[![React WebApp CI/CD](https://github.com/yashchaudhari008/unsaved-contact-to-whatsapp-chat/actions/workflows/node.js.yml/badge.svg)](https://github.com/yashchaudhari008/unsaved-contact-to-whatsapp-chat/actions/workflows/node.js.yml)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yashchaudhari008/unsaved-contact-to-whatsapp-chat)
 ![GitHub](https://img.shields.io/github/license/yashchaudhari008/unsaved-contact-to-whatsapp-chat)
 
 Allow to open chat on WhatsApp without saving contact number.
-
 
 ## 🖥 Deployed App
 
