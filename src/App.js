@@ -50,12 +50,9 @@ function App() {
               id="country-code-input"
               value={countryCode}
               size={countryCode.length}
-              onChange={(e) =>
-                setCountryCode((old) => {
-                  return e.target.value.length > 0 ? e.target.value : old;
-                })
-              }
-              autoComplete={false}
+               onChange={(e) => setCountryCode(parseNumber(e.target.value))}
+            autoComplete={false}
+            pattern="^(\+?(\d{1,3}))?[0-9]+"
             ></input>
           )}
           <input
