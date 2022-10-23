@@ -50,10 +50,14 @@ function App() {
               id="country-code-input"
               value={countryCode}
               size={countryCode.length}
-              onChange={(e) =>
+              onChange={(e) => {
+                const currChar = e.target.value[e.target.value.length - 1]
                 setCountryCode((old) => {
-                  return e.target.value.length > 0 ? e.target.value : old;
+                  return e.target.value.length > 0
+                          && e.target.value.length <= 3
+                          && (Number(currChar) || currChar === '+')? e.target.value : old;
                 })
+              }
               }
               autoComplete={false}
             ></input>
